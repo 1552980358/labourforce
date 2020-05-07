@@ -9,13 +9,13 @@ import lib.github1552980358.labourforce.labours.base.WorkDoneSignal
 import java.io.File
 
 /**
- * @File    : LowLvLabour
+ * @File    : MidLvLabour
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 19:47
  **/
 
-class LowLvLabour: BaseLabour(), LabourIdentity {
+class MidLvLabour: BaseLabour(), LabourIdentity {
     
     /** [workList] **/
     private val workList = arrayListOf<LabourWork>()
@@ -30,7 +30,6 @@ class LowLvLabour: BaseLabour(), LabourIdentity {
                 sleep(checkInterval)
                 continue
             }
-            
             
             // New work in list
             // 列表中有新工作
