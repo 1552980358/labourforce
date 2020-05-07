@@ -9,6 +9,14 @@ package lib.github1552980358.labourforce.labours.base
 
 abstract class LabourWork {
     
+    var priority: WorkPriority? = null
+        private set
+    
+    constructor(): super()
+    constructor(priority: WorkPriority): this() {
+        this.priority = priority
+    }
+    
     /**
      * [workProduct]
      * @author 1552980358

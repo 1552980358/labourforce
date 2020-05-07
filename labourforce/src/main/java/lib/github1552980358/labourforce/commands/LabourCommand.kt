@@ -1,6 +1,7 @@
 package lib.github1552980358.labourforce.commands
 
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
+import lib.github1552980358.labourforce.labours.base.LabourWork
 
 /**
  * @File    : LabourCommand
@@ -38,6 +39,17 @@ interface LabourCommand {
     fun fireLabour(name: String): LabourCommand {
         labours[name]?.offDuty()
         labours.remove(name)
+        return this
+    }
+    
+    /**
+     * [sendWork2Labour]
+     * @param name
+     * @return [LabourCommand]
+     **/
+    fun sendWork2Labour(name: String, labourWork: LabourWork): LabourCommand {
+        if (labours.contains(name))
+            labours[name]?.onWorkReceive(labourWork)
         return this
     }
     
