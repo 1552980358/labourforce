@@ -1,5 +1,8 @@
 package lib.github1552980358.labourforce.commands
 
+import lib.github1552980358.labourforce.labours.HighLvLabour
+import lib.github1552980358.labourforce.labours.LowLvLabour
+import lib.github1552980358.labourforce.labours.MidLvLabour
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
 import lib.github1552980358.labourforce.labours.base.LabourWork
 
@@ -25,9 +28,35 @@ interface LabourCommand {
      * @param labourIdentity
      * @return [LabourCommand]
      **/
-    fun employLabour(name: String, labourIdentity: LabourIdentity?): LabourCommand {
+    fun employLabour(name: String, labourIdentity: LabourIdentity?, cover: Boolean = false): LabourCommand {
         labourIdentity?:return this
+        if (labours.contains(name)) {
+            if (!cover) {
+                return this
+            }
+        }
         labours[name] = labourIdentity
+        return this
+    }
+    
+    /**
+     * [employLabour]
+     * @param name
+     * @param lv
+     * @param cover
+     * @return [LabourCommand]
+     **/
+    fun employLabour(name: String, lv: LabourLv, cover: Boolean = false): LabourCommand {
+        if (labours.contains(name)) {
+            if (!cover) {
+                return this
+            }
+        }
+        labours[name] = when (lv) {
+            LabourLv.High -> HighLvLabour()
+            LabourLv.Mid -> MidLvLabour()
+            LabourLv.Low -> LowLvLabour()
+        }
         return this
     }
     
