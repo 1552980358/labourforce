@@ -29,6 +29,9 @@ interface LabourIdentity {
      **/
     fun isWorking(): Boolean
     
+    /**
+     * [onReceiveMessage]
+     **/
     fun onReceiveMessage()
     
 }

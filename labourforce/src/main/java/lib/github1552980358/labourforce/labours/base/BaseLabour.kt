@@ -21,9 +21,34 @@ open class BaseLabour: Thread() {
     
     open var dutyStatus = LabourDuty.DoWork
     
+    override fun run() {
+        try {
+            currentWork?.workContent(currentWork?.workProduct)
+        
+            // Labour stop working
+            // 劳工停止工作
+            if (dutyStatus == LabourDuty.EndWork)
+                throw dutyEnd
+        
+            // Work done
+            // 工作完成
+            throw workDone
+        } catch (e: WorkDoneSignal) {
+            currentWork?.workDone(currentWork?.workProduct)
+        } catch (e: DutyEndSignal) {
+            currentWork?.dutyEnd(currentWork?.workProduct)
+        } catch (e: Exception) {
+            //e.printStackTrace()
+            currentWork?.workFail(currentWork?.workProduct, e)
+        }
+    
+        // Recycle
+        // 回收
+        currentWork = null
+    }
+    
     /** [checkInterval] **/
     var checkInterval = 100L
-        private set
     
     /** [currentWork] **/
     internal var currentWork: LabourWork? = null

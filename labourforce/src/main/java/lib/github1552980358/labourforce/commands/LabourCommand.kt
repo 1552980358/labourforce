@@ -37,6 +37,7 @@ interface LabourCommand {
      **/
     fun fireLabour(name: String): LabourCommand {
         labours[name]?.offDuty()
+        labours.remove(name)
         return this
     }
     
