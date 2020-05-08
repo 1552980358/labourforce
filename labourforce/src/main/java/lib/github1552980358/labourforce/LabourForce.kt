@@ -10,7 +10,7 @@ import lib.github1552980358.labourforce.commands.LabourSource
  * @TIME    : 18:03
  **/
 
-class LabourForce : LabourCommand, LabourSource {
+class LabourForce private constructor(): LabourCommand, LabourSource {
     
     companion object {
         
