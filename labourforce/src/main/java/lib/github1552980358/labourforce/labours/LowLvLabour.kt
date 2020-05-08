@@ -14,6 +14,11 @@ import lib.github1552980358.labourforce.labours.base.LabourWork
 
 class LowLvLabour: BaseLabour(), LabourIdentity {
     
+    /**
+     * [nextWork]
+     * @author 1552980358
+     * @since v0.1
+     **/
     var nextWork: LabourWork? = null
     
     override fun run() {
@@ -38,20 +43,41 @@ class LowLvLabour: BaseLabour(), LabourIdentity {
         }
     }
     
+    /**
+     * [onWorkReceive]
+     * @param labourWork [LabourWork]?
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun onWorkReceive(labourWork: LabourWork?) {
         nextWork = labourWork
     }
     
+    /**
+     * [offDuty]
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun offDuty() {
         dutyStatus = LabourDuty.EndWork
         nextWork = null
         currentWork = null
     }
     
+    /**
+     * [isWorking]
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun isWorking(): Boolean {
         return currentWork == null
     }
     
+    /**
+     * [onReceiveMessage]
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun onReceiveMessage() {
     }
 }

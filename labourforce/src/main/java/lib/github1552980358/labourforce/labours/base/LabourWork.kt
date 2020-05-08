@@ -9,6 +9,11 @@ package lib.github1552980358.labourforce.labours.base
 
 abstract class LabourWork {
     
+    /**
+     * [priority]
+     * @author 1552980358
+     * @since v0.1
+     **/
     var priority: WorkPriority? = null
         private set
     
@@ -20,6 +25,7 @@ abstract class LabourWork {
     /**
      * [workProduct]
      * @author 1552980358
+     * @since v0.1
      **/
     val workProduct = mutableMapOf<String, Any?>()
     //val workMessages = arrayListOf<>()

@@ -17,9 +17,18 @@ import java.io.File
 
 class MidLvLabour: BaseLabour(), LabourIdentity {
     
-    /** [workList] **/
+    /**
+     * [workList]
+     * @author 1552980358
+     * @since v0.1
+     **/
     private val workList = arrayListOf<LabourWork>()
     
+    /**
+     * [run]
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun run() {
         
         while (dutyStatus != LabourDuty.EndWork) {
@@ -44,6 +53,8 @@ class MidLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [onWorkReceive]
+     * @author 1552980358
+     * @since v0.1
      **/
     @Synchronized
     override fun onWorkReceive(labourWork: LabourWork?) {
@@ -53,6 +64,8 @@ class MidLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [offDuty]
+     * @author 1552980358
+     * @since v0.1
      **/
     override fun offDuty() {
         dutyStatus = LabourDuty.EndWork
@@ -62,6 +75,8 @@ class MidLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [isWorking]
+     * @author 1552980358
+     * @since v0.1
      **/
     override fun isWorking(): Boolean {
         return currentWork == null
@@ -69,6 +84,8 @@ class MidLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [onReceiveMessage]
+     * @author 1552980358
+     * @since v0.1
      **/
     override fun onReceiveMessage() {
     

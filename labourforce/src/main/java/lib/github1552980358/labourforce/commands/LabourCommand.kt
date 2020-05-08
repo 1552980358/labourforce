@@ -73,13 +73,24 @@ interface LabourCommand {
     
     /**
      * [sendWork2Labour]
-     * @param name
+     * @param name [String]
+     * @param labourWork [LabourWork]
      * @return [LabourCommand]
      **/
     fun sendWork2Labour(name: String, labourWork: LabourWork): LabourCommand {
         if (labours.contains(name))
             labours[name]?.onWorkReceive(labourWork)
         return this
+    }
+    
+    /**
+     * [sendWork2Labour]
+     * @param name [String]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    fun sendMsg2Labour(name: String) {
+    
     }
     
 }
