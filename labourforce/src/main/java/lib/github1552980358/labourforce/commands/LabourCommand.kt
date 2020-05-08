@@ -4,7 +4,7 @@ import lib.github1552980358.labourforce.labours.HighLvLabour
 import lib.github1552980358.labourforce.labours.LowLvLabour
 import lib.github1552980358.labourforce.labours.MidLvLabour
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
-import lib.github1552980358.labourforce.labours.base.LabourWork
+import lib.github1552980358.labourforce.labours.work.LabourWork
 
 /**
  * @File    : [LabourCommand]
@@ -84,7 +84,7 @@ interface LabourCommand {
     }
     
     /**
-     * [sendWork2Labour]
+     * [sendMsg2Labour]
      * @param name [String]
      * @author 1552980358
      * @since v0.1

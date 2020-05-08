@@ -1,5 +1,7 @@
 package lib.github1552980358.labourforce.labours.base
 
+import lib.github1552980358.labourforce.labours.work.LabourWork
+
 /**
  * @File    : [LabourIdentity]
  * @Author  : 1552980358

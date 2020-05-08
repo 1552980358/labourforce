@@ -1,4 +1,4 @@
-package lib.github1552980358.labourforce.labours.base
+package lib.github1552980358.labourforce.labours.work
 
 import lib.github1552980358.labourforce.commands.LabourCommand
 

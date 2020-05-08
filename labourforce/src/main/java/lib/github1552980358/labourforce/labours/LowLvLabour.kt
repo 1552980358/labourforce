@@ -3,7 +3,7 @@ package lib.github1552980358.labourforce.labours
 import lib.github1552980358.labourforce.labours.base.BaseLabour
 import lib.github1552980358.labourforce.labours.base.LabourDuty
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
-import lib.github1552980358.labourforce.labours.base.LabourWork
+import lib.github1552980358.labourforce.labours.work.LabourWork
 
 /**
  * @File    : [LowLvLabour]
