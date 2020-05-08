@@ -6,7 +6,7 @@ import lib.github1552980358.labourforce.labours.base.LabourIdentity
 import lib.github1552980358.labourforce.labours.base.LabourWork
 
 /**
- * @File    : LowLvLabour
+ * @File    : [LowLvLabour]
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 21:36

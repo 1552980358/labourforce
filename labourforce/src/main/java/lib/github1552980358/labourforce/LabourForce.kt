@@ -3,7 +3,7 @@ package lib.github1552980358.labourforce
 import lib.github1552980358.labourforce.commands.LabourCommand
 
 /**
- * @File    : LabourForce
+ * @File    : [LabourForce]
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 18:03

@@ -9,7 +9,7 @@ import lib.github1552980358.labourforce.labours.base.WorkDoneSignal
 import java.io.File
 
 /**
- * @File    : MidLvLabour
+ * @File    : [MidLvLabour]
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 19:47

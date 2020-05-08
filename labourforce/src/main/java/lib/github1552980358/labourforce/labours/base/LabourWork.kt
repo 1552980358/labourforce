@@ -1,7 +1,7 @@
 package lib.github1552980358.labourforce.labours.base
 
 /**
- * @File    : LabourWork
+ * @File    : [LabourWork]
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 18:20

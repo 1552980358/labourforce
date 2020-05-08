@@ -1,7 +1,7 @@
 package lib.github1552980358.labourforce.commands
 
 /**
- * @File    : LabourLv
+ * @File    : [LabourLv]
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 22:23

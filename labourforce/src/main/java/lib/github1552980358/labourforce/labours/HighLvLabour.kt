@@ -7,7 +7,7 @@ import lib.github1552980358.labourforce.labours.base.LabourWork
 import lib.github1552980358.labourforce.labours.base.WorkPriority
 
 /**
- * @File    : HighLvLabour
+ * @File    : [HighLvLabour]
  * @Author  : 1552980358
  * @Date    : 2020/5/7
  * @TIME    : 22:10
