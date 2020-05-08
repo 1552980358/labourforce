@@ -35,7 +35,7 @@ abstract class LabourWork {
     
     /**
      * [workContent]
-     * @param workProduct [MutableMap]
+     * @param workProduct [MutableMap]<[String], [Any]?>
      * @author 1552980358
      * @since v0.1
      **/
@@ -43,7 +43,7 @@ abstract class LabourWork {
     
     /**
      * [workFail]
-     * @param workProduct [MutableMap]
+     * @param workProduct [MutableMap]<[String], [Any]?>
      * @param e [Exception]
      * @author 1552980358
      * @since v0.1
@@ -52,7 +52,7 @@ abstract class LabourWork {
     
     /**
      * [workDone]
-     * @param workProduct [MutableMap]
+     * @param workProduct [MutableMap]<[String], [Any]?>
      * @author 1552980358
      * @since v0.1
      **/
@@ -60,7 +60,7 @@ abstract class LabourWork {
     
     /**
      * [dutyEnd]
-     * @param workProduct [MutableMap]
+     * @param workProduct [MutableMap]<[String], [Any]?>
      * @author 1552980358
      * @since v0.1
      **/
@@ -69,7 +69,7 @@ abstract class LabourWork {
     /**
      * [dutyEnd]
      * @param workMessage [WorkMessage]
-     * @param workProduct [MutableMap]
+     * @param workProduct [MutableMap]<[String], [Any]?>
      **/
     fun receiveMessage(@Suppress("UNUSED_PARAMETER") workMessage: WorkMessage?, @Suppress("UNUSED_PARAMETER") workProduct: MutableMap<String, Any?>?) {
     

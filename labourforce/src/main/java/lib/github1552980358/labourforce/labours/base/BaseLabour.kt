@@ -1,6 +1,7 @@
 package lib.github1552980358.labourforce.labours.base
 
 import lib.github1552980358.labourforce.labours.work.LabourWork
+import lib.github1552980358.labourforce.labours.work.LabourWorkBuilder
 
 /**
  * @File    : [BaseLabour]
@@ -38,7 +39,9 @@ open class BaseLabour: Thread() {
      **/
     override fun run() {
         try {
-            currentWork?.workContent(currentWork?.workProduct)
+            
+            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+                ?.workContent(currentWork?.workProduct)
         
             // Labour stop working
             // 劳工停止工作
@@ -49,12 +52,15 @@ open class BaseLabour: Thread() {
             // 工作完成
             throw workDone
         } catch (e: WorkDoneSignal) {
-            currentWork?.workDone(currentWork?.workProduct)
+            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+                ?.workDone(currentWork?.workProduct)
         } catch (e: DutyEndSignal) {
-            currentWork?.dutyEnd(currentWork?.workProduct)
+            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+                ?.dutyEnd(currentWork?.workProduct)
         } catch (e: Exception) {
             //e.printStackTrace()
-            currentWork?.workFail(currentWork?.workProduct, e)
+            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+                ?.workFail(currentWork?.workProduct, e)
         }
     
         // Recycle
