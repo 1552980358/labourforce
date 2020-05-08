@@ -40,7 +40,7 @@ open class BaseLabour: Thread() {
     override fun run() {
         try {
             
-            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
                 ?.workContent(currentWork?.workProduct)
         
             // Labour stop working
@@ -52,14 +52,14 @@ open class BaseLabour: Thread() {
             // 工作完成
             throw workDone
         } catch (e: WorkDoneSignal) {
-            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
                 ?.workDone(currentWork?.workProduct)
         } catch (e: DutyEndSignal) {
-            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
                 ?.dutyEnd(currentWork?.workProduct)
         } catch (e: Exception) {
             //e.printStackTrace()
-            (if (currentWork is LabourWorkBuilder?) currentWork as LabourWorkBuilder else currentWork)
+            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
                 ?.workFail(currentWork?.workProduct, e)
         }
     

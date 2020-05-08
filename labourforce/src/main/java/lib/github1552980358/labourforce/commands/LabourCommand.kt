@@ -57,10 +57,14 @@ interface LabourCommand {
                 return this
             }
         }
+        // If not casting as LabourIdentity, compilation won't be passed
+        // 如果不转义为 [LabourIdentity], 编译会无法通过
+        //@Suppress("USELESS_CAST")
+        @Suppress("USELESS_CAST")
         labours[name] = when (lv) {
-            LabourLv.High -> HighLvLabour()
-            LabourLv.Mid -> MidLvLabour()
-            LabourLv.Low -> LowLvLabour()
+            LabourLv.High -> (HighLvLabour() as LabourIdentity)
+            LabourLv.Mid -> (MidLvLabour() as LabourIdentity)
+            LabourLv.Low -> (LowLvLabour() as LabourIdentity)
         }
         return this
     }
