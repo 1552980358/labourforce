@@ -1,5 +1,6 @@
 package lib.github1552980358.labourforce.labours.base
 
+import lib.github1552980358.labourforce.labours.message.WorkMessage
 import lib.github1552980358.labourforce.labours.work.LabourWork
 
 /**
@@ -28,12 +29,16 @@ interface LabourIdentity {
     
     /**
      * [isWorking]
+     * @author 1552980358
+     * @since v0.1
      **/
     fun isWorking(): Boolean
     
     /**
      * [onReceiveMessage]
+     * @author 1552980358
+     * @since v0.1
      **/
-    fun onReceiveMessage()
+    fun onReceiveMessage(workMessage: WorkMessage?)
     
 }

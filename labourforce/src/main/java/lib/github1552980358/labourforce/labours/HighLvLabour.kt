@@ -5,6 +5,7 @@ import lib.github1552980358.labourforce.labours.base.LabourDuty
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
 import lib.github1552980358.labourforce.labours.work.LabourWork
 import lib.github1552980358.labourforce.labours.base.WorkPriority
+import lib.github1552980358.labourforce.labours.message.WorkMessage
 
 /**
  * @File    : [HighLvLabour]
@@ -85,7 +86,7 @@ class HighLvLabour: BaseLabour(), LabourIdentity {
     /**
      * [onReceiveMessage]
      **/
-    override fun onReceiveMessage() {
-    
+    override fun onReceiveMessage(workMessage: WorkMessage?) {
+        currentWork?.receiveMessage(workMessage, currentWork?.workProduct)
     }
 }

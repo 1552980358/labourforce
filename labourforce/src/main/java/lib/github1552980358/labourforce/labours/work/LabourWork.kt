@@ -1,6 +1,7 @@
 package lib.github1552980358.labourforce.labours.work
 
 import lib.github1552980358.labourforce.labours.base.WorkPriority
+import lib.github1552980358.labourforce.labours.message.WorkMessage
 
 /**
  * @File    : [LabourWork]
@@ -34,35 +35,44 @@ abstract class LabourWork {
     
     /**
      * [workContent]
-     * @param workMessage
+     * @param workProduct
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workContent(workMessage: MutableMap<String, Any?>?)
+    abstract fun workContent(workProduct: MutableMap<String, Any?>?)
     
     /**
      * [workFail]
-     * @param workMessage
+     * @param workProduct
      * @param e
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workFail(workMessage: MutableMap<String, Any?>?, e: Exception)
+    abstract fun workFail(workProduct: MutableMap<String, Any?>?, e: Exception)
     
     /**
      * [workDone]
-     * @param workMessage
+     * @param workProduct
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workDone(workMessage: MutableMap<String, Any?>?)
+    abstract fun workDone(workProduct: MutableMap<String, Any?>?)
     
     /**
      * [dutyEnd]
-     * @param workMessage
+     * @param workProduct
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun dutyEnd(workMessage: MutableMap<String, Any?>?)
+    abstract fun dutyEnd(workProduct: MutableMap<String, Any?>?)
+    
+    /**
+     * [dutyEnd]
+     * @param workMessage [WorkMessage]
+     * @param workProduct [MutableMap]
+     **/
+    fun receiveMessage(@Suppress("UNUSED_PARAMETER") workMessage: WorkMessage?, @Suppress("UNUSED_PARAMETER") workProduct: MutableMap<String, Any?>?) {
+    
+    }
     
 }

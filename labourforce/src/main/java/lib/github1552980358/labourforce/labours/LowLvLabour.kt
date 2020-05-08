@@ -3,6 +3,7 @@ package lib.github1552980358.labourforce.labours
 import lib.github1552980358.labourforce.labours.base.BaseLabour
 import lib.github1552980358.labourforce.labours.base.LabourDuty
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
+import lib.github1552980358.labourforce.labours.message.WorkMessage
 import lib.github1552980358.labourforce.labours.work.LabourWork
 
 /**
@@ -19,7 +20,7 @@ class LowLvLabour: BaseLabour(), LabourIdentity {
      * @author 1552980358
      * @since v0.1
      **/
-    var nextWork: LabourWork? = null
+    private var nextWork: LabourWork? = null
     
     override fun run() {
         while (dutyStatus != LabourDuty.EndWork) {
@@ -78,6 +79,7 @@ class LowLvLabour: BaseLabour(), LabourIdentity {
      * @author 1552980358
      * @since v0.1
      **/
-    override fun onReceiveMessage() {
+    override fun onReceiveMessage(workMessage: WorkMessage?) {
+        currentWork?.receiveMessage(workMessage, currentWork?.workProduct)
     }
 }

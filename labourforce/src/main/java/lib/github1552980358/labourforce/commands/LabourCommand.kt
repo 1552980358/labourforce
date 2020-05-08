@@ -4,6 +4,7 @@ import lib.github1552980358.labourforce.labours.HighLvLabour
 import lib.github1552980358.labourforce.labours.LowLvLabour
 import lib.github1552980358.labourforce.labours.MidLvLabour
 import lib.github1552980358.labourforce.labours.base.LabourIdentity
+import lib.github1552980358.labourforce.labours.message.WorkMessage
 import lib.github1552980358.labourforce.labours.work.LabourWork
 
 /**
@@ -89,8 +90,8 @@ interface LabourCommand {
      * @author 1552980358
      * @since v0.1
      **/
-    fun sendMsg2Labour(name: String) {
-    
+    fun sendMsg2Labour(name: String, workMessage: WorkMessage?) {
+        labours[name]?.onReceiveMessage(workMessage)
     }
     
 }
