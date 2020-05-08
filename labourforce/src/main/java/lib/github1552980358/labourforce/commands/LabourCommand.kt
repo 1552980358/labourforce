@@ -18,7 +18,11 @@ interface LabourCommand {
     
     companion object {
         
-        /** [labours] **/
+        /**
+         * [labours]
+         * @author 1552980358
+         * @since v0.1
+         **/
         val labours = mutableMapOf<String, LabourIdentity>()
         
     }

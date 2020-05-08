@@ -35,7 +35,7 @@ abstract class LabourWork {
     
     /**
      * [workContent]
-     * @param workProduct
+     * @param workProduct [MutableMap]
      * @author 1552980358
      * @since v0.1
      **/
@@ -43,8 +43,8 @@ abstract class LabourWork {
     
     /**
      * [workFail]
-     * @param workProduct
-     * @param e
+     * @param workProduct [MutableMap]
+     * @param e [Exception]
      * @author 1552980358
      * @since v0.1
      **/
@@ -52,7 +52,7 @@ abstract class LabourWork {
     
     /**
      * [workDone]
-     * @param workProduct
+     * @param workProduct [MutableMap]
      * @author 1552980358
      * @since v0.1
      **/
@@ -60,7 +60,7 @@ abstract class LabourWork {
     
     /**
      * [dutyEnd]
-     * @param workProduct
+     * @param workProduct [MutableMap]
      * @author 1552980358
      * @since v0.1
      **/

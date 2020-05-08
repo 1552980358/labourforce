@@ -22,6 +22,11 @@ class LowLvLabour: BaseLabour(), LabourIdentity {
      **/
     private var nextWork: LabourWork? = null
     
+    /**
+     * [run]
+     * @author 1552980358
+     * @since v0.1
+     ***/
     override fun run() {
         while (dutyStatus != LabourDuty.EndWork) {
         
@@ -76,6 +81,7 @@ class LowLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [onReceiveMessage]
+     * @param workMessage [WorkMessage]
      * @author 1552980358
      * @since v0.1
      **/

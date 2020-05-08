@@ -22,6 +22,11 @@ class HighLvLabour: BaseLabour(), LabourIdentity {
     /** [min] **/
     private val min = arrayListOf<LabourWork>()
     
+    /**
+     * [run]
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun run() {
         
         while (dutyStatus != LabourDuty.EndWork) {
@@ -48,6 +53,8 @@ class HighLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [onWorkReceive]
+     * @author 1552980358
+     * @since v0.1
      **/
     @Synchronized
     override fun onWorkReceive(labourWork: LabourWork?) {
@@ -67,6 +74,8 @@ class HighLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [offDuty]
+     * @author 1552980358
+     * @since v0.1
      **/
     override fun offDuty() {
         dutyStatus = LabourDuty.EndWork
@@ -78,6 +87,9 @@ class HighLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [isWorking]
+     * @return [Boolean]
+     * @author 1552980358
+     * @since v0.1
      **/
     override fun isWorking(): Boolean {
         return currentWork == null
@@ -85,6 +97,8 @@ class HighLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [onReceiveMessage]
+     * @author 1552980358
+     * @since v0.1
      **/
     override fun onReceiveMessage(workMessage: WorkMessage?) {
         currentWork?.receiveMessage(workMessage, currentWork?.workProduct)

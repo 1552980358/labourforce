@@ -14,7 +14,7 @@ interface LabourIdentity {
     
     /**
      * [onWorkReceive]
-     * @param labourWork
+     * @param labourWork [LabourWork]?
      * @author 1552980358
      * @since v0.1
      **/
@@ -36,6 +36,7 @@ interface LabourIdentity {
     
     /**
      * [onReceiveMessage]
+     * @param workMessage [WorkMessage]
      * @author 1552980358
      * @since v0.1
      **/

@@ -82,6 +82,7 @@ class MidLvLabour: BaseLabour(), LabourIdentity {
     
     /**
      * [onReceiveMessage]
+     * @param workMessage [WorkMessage]
      * @author 1552980358
      * @since v0.1
      **/

@@ -14,7 +14,11 @@ interface LabourSource {
     
     companion object {
         
-        /** [PRIVATE_FILE] **/
+        /**
+         * [PRIVATE_FILE]
+         * @author 1552980358
+         * @since v0.1
+         **/
         private const val PRIVATE_FILE = "LabourForce"
         
     }

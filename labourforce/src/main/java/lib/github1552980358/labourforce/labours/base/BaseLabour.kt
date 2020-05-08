@@ -13,16 +13,29 @@ open class BaseLabour: Thread() {
     
     companion object {
         
-        /** [workDone] **/
+        /**
+         * [workDone]
+         * @author 1552980358
+         * @since v0.1
+         **/
         val workDone = WorkDoneSignal()
         
-        /** [dutyEnd] **/
+        /**
+         * [dutyEnd]
+         * @author 1552980358
+         * @since v0.1
+         **/
         val dutyEnd = DutyEndSignal()
         
     }
     
     open var dutyStatus = LabourDuty.DoWork
     
+    /**
+     * [run]
+     * @author 1552980358
+     * @since v0.1
+     **/
     override fun run() {
         try {
             currentWork?.workContent(currentWork?.workProduct)
@@ -49,10 +62,18 @@ open class BaseLabour: Thread() {
         currentWork = null
     }
     
-    /** [checkInterval] **/
+    /**
+     * [checkInterval]
+     * @author 1552980358
+     * @since v0.1
+     **/
     var checkInterval = 100L
     
-    /** [currentWork] **/
+    /**
+     * [currentWork]
+     * @author 1552980358
+     * @since v0.1
+     **/
     internal var currentWork: LabourWork? = null
     
 }
