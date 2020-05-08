@@ -1,6 +1,7 @@
 package lib.github1552980358.labourforce
 
 import lib.github1552980358.labourforce.commands.LabourCommand
+import lib.github1552980358.labourforce.commands.LabourSource
 
 /**
  * @File    : [LabourForce]
@@ -9,12 +10,13 @@ import lib.github1552980358.labourforce.commands.LabourCommand
  * @TIME    : 18:03
  **/
 
-class LabourForce: LabourCommand {
+class LabourForce : LabourCommand, LabourSource {
     
     companion object {
         
+        /** [onDuty] **/
         @JvmStatic
-        val startOperate by lazy { LabourForce() }
+        val onDuty by lazy { LabourForce() }
         
     }
     
