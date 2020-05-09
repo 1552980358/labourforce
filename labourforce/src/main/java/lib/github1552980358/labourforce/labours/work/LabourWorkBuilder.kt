@@ -1,6 +1,7 @@
 package lib.github1552980358.labourforce.labours.work
 
 import android.os.Handler
+import lib.github1552980358.labourforce.labours.base.WorkPriority
 
 /**
  * @File    : LabourWorkBuilder
@@ -9,7 +10,7 @@ import android.os.Handler
  * @TIME    : 13:49
  **/
 
-class LabourWorkBuilder: LabourWork() {
+class LabourWorkBuilder: LabourWork {
     
     companion object {
     
@@ -85,6 +86,9 @@ class LabourWorkBuilder: LabourWork() {
         }
         
     }
+    
+    constructor(handler: Handler? = null): super(handler)
+    constructor(priority: WorkPriority? = null, handler: Handler? = null): super(handler)
     
     /**
      * [workContentInterface]
