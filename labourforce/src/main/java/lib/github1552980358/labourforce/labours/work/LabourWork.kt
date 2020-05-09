@@ -37,11 +37,11 @@ abstract class LabourWork {
     }
     
     /**
-     * [workProduct]
+     * [productionLine]
      * @author 1552980358
      * @since v0.1
      **/
-    val workProduct = mutableMapOf<String, Any?>()
+    val productionLine = mutableMapOf<String, Any?>()
     //val workMessages = arrayListOf<>()
     
     /**
@@ -77,12 +77,18 @@ abstract class LabourWork {
      **/
     abstract fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
+    
+    private var workMessage = null as WorkMessage?
+    
     /**
-     * [dutyEnd]
+     * [receiveMessage]
      * @param workMessage [WorkMessage]
      * @param workProduct [MutableMap]<[String], [Any]?>
+     *     @author 1552980358
+     * @since v0.1
      **/
-    fun receiveMessage(@Suppress("UNUSED_PARAMETER") workMessage: WorkMessage?, @Suppress("UNUSED_PARAMETER") workProduct: MutableMap<String, Any?>?) {
+    @Synchronized
+    internal fun receiveMessage(@Suppress("UNUSED_PARAMETER") workMessage: WorkMessage?, @Suppress("UNUSED_PARAMETER") workProduct: MutableMap<String, Any?>?) {
     
     }
     

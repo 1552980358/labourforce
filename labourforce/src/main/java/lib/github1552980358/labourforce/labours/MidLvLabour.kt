@@ -87,7 +87,7 @@ class MidLvLabour: BaseLabour(), LabourIdentity {
      * @since v0.1
      **/
     override fun onReceiveMessage(workMessage: WorkMessage?) {
-        currentWork?.receiveMessage(workMessage, currentWork?.workProduct)
+        currentWork?.receiveMessage(workMessage, currentWork?.productionLine)
     }
     
 }
