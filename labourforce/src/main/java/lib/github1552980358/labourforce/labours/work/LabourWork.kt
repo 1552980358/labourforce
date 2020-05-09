@@ -1,5 +1,6 @@
 package lib.github1552980358.labourforce.labours.work
 
+import android.os.Handler
 import lib.github1552980358.labourforce.labours.base.WorkPriority
 import lib.github1552980358.labourforce.labours.message.WorkMessage
 
@@ -20,8 +21,18 @@ abstract class LabourWork {
     var priority: WorkPriority? = null
         private set
     
-    constructor(): super()
-    constructor(priority: WorkPriority): this() {
+    /**
+     * [Handler]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    var handler = null as Handler?
+        private set
+    
+    constructor(handler: Handler? = null): super() {
+        this.handler = handler
+    }
+    constructor(priority: WorkPriority? = null, handler: Handler? = null): this(handler) {
         this.priority = priority
     }
     
@@ -39,7 +50,7 @@ abstract class LabourWork {
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workContent(workProduct: MutableMap<String, Any?>?)
+    abstract fun workContent(workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
     /**
      * [workFail]
@@ -48,7 +59,7 @@ abstract class LabourWork {
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workFail(workProduct: MutableMap<String, Any?>?, e: Exception)
+    abstract fun workFail( e: Exception,workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
     /**
      * [workDone]
@@ -56,7 +67,7 @@ abstract class LabourWork {
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workDone(workProduct: MutableMap<String, Any?>?)
+    abstract fun workDone(workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
     /**
      * [dutyEnd]
@@ -64,7 +75,7 @@ abstract class LabourWork {
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun dutyEnd(workProduct: MutableMap<String, Any?>?)
+    abstract fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
     /**
      * [dutyEnd]

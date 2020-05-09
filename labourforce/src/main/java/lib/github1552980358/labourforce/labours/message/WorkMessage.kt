@@ -8,6 +8,7 @@ package lib.github1552980358.labourforce.labours.message
  **/
 
 abstract class WorkMessage {
+    
     /**
      * [messages]
      * @author 1552980358

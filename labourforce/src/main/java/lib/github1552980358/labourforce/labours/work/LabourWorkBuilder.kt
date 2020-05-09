@@ -1,5 +1,7 @@
 package lib.github1552980358.labourforce.labours.work
 
+import android.os.Handler
+
 /**
  * @File    : LabourWorkBuilder
  * @Author  : 1552980358
@@ -34,7 +36,7 @@ class LabourWorkBuilder: LabourWork() {
              * @author 1552980358
              * @since v0.1
              **/
-            fun workDone(workProduct: MutableMap<String, Any?>?)
+            fun workDone(workProduct: MutableMap<String, Any?>?, handler: Handler?)
         }
     
         /**
@@ -49,7 +51,7 @@ class LabourWorkBuilder: LabourWork() {
              * @author 1552980358
              * @since v0.1
              **/
-            fun workFail(workProduct: MutableMap<String, Any?>?, e: Exception)
+            fun workFail(e: Exception,workProduct: MutableMap<String, Any?>?,  handler: Handler?)
         }
     
         /**
@@ -64,7 +66,7 @@ class LabourWorkBuilder: LabourWork() {
              * @author 1552980358
              * @since v0.1
              **/
-            fun workContent(workProduct: MutableMap<String, Any?>?)
+            fun workContent(workProduct: MutableMap<String, Any?>?, handler: Handler?)
         }
     
         /**
@@ -79,7 +81,7 @@ class LabourWorkBuilder: LabourWork() {
              * @author 1552980358
              * @since v0.1
              **/
-            fun dutyEnd(workProduct: MutableMap<String, Any?>?)
+            fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?)
         }
         
     }
@@ -170,8 +172,8 @@ class LabourWorkBuilder: LabourWork() {
      * @author 1552980358
      * @since v0.1
      **/
-    override fun workContent(workProduct: MutableMap<String, Any?>?) {
-        workContentInterface!!.workContent(workProduct)
+    override fun workContent(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+        workContentInterface!!.workContent(workProduct, handler)
     }
     
     /**
@@ -180,8 +182,8 @@ class LabourWorkBuilder: LabourWork() {
      * @author 1552980358
      * @since v0.1
      **/
-    override fun workFail(workProduct: MutableMap<String, Any?>?, e: Exception) {
-        workFailInterface!!.workFail(workProduct, e)
+    override fun workFail(e: Exception,workProduct: MutableMap<String, Any?>?,  handler: Handler?) {
+        workFailInterface!!.workFail(e, workProduct, handler)
     }
     
     /**
@@ -190,8 +192,8 @@ class LabourWorkBuilder: LabourWork() {
      * @author 1552980358
      * @since v0.1
      **/
-    override fun workDone(workProduct: MutableMap<String, Any?>?) {
-        workDoneInterface!!.workDone(workProduct)
+    override fun workDone(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+        workDoneInterface!!.workDone(workProduct, handler)
     }
     
     /**
@@ -200,8 +202,8 @@ class LabourWorkBuilder: LabourWork() {
      * @author 1552980358
      * @since v0.1
      **/
-    override fun dutyEnd(workProduct: MutableMap<String, Any?>?) {
-        dutyEndInterface!!.dutyEnd(workProduct)
+    override fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+        dutyEndInterface!!.dutyEnd(workProduct, handler)
     }
     
 }

@@ -41,7 +41,7 @@ open class BaseLabour: Thread() {
         try {
             
             (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.workContent(currentWork?.workProduct)
+                ?.workContent(currentWork?.workProduct, currentWork?.handler)
         
             // Labour stop working
             // 劳工停止工作
@@ -53,14 +53,14 @@ open class BaseLabour: Thread() {
             throw workDone
         } catch (e: WorkDoneSignal) {
             (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.workDone(currentWork?.workProduct)
+                ?.workDone(currentWork?.workProduct, currentWork?.handler)
         } catch (e: DutyEndSignal) {
             (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.dutyEnd(currentWork?.workProduct)
+                ?.dutyEnd(currentWork?.workProduct, currentWork?.handler)
         } catch (e: Exception) {
             //e.printStackTrace()
             (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.workFail(currentWork?.workProduct, e)
+                ?.workFail(e, currentWork?.workProduct, currentWork?.handler)
         }
     
         // Recycle
