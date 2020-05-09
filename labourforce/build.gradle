@@ -10,7 +10,7 @@ android {
 
     //noinspection GroovyMissingReturnStatement
     defaultConfig {
-        minSdkVersion 24
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode gitCommits
         versionName "0.1"
