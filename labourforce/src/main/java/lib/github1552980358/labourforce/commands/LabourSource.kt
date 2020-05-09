@@ -31,7 +31,7 @@ interface LabourSource {
      * @since v0.1
      **/
     fun longTermLabour(context: Context, labourCommand: LabourCommand) {
-        File(context.dataDir.absolutePath, PRIVATE_FILE).apply {
+        File(context.cacheDir.absolutePath, PRIVATE_FILE).apply {
             // Check if file not exists
             // 检查文件是否存在
             if (!exists()) {
@@ -61,7 +61,7 @@ interface LabourSource {
     fun registerLongTermLabour(context: Context, name: String, labourLv: LabourLv) {
         // Check if repeated
         // 检查是否重复
-        File(context.dataDir.absolutePath, PRIVATE_FILE).apply {
+        File(context.cacheDir.absolutePath, PRIVATE_FILE).apply {
             // Check if file not exists
             // 检查文件是否存在
             if (!exists()) {
@@ -91,7 +91,7 @@ interface LabourSource {
      * @since v0.1
      **/
     fun unregisterLongTermLabour(context: Context, name: String) {
-        File(context.dataDir.absolutePath, PRIVATE_FILE).apply {
+        File(context.cacheDir.absolutePath, PRIVATE_FILE).apply {
             // Check if file not exists
             // 检查文件是否存在
             if (!exists()) {
