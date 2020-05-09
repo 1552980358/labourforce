@@ -2,7 +2,6 @@ package lib.github1552980358.labourforce.labours
 
 import lib.github1552980358.labourforce.labours.base.BaseLabour
 import lib.github1552980358.labourforce.labours.base.LabourDuty
-import lib.github1552980358.labourforce.labours.base.LabourIdentity
 import lib.github1552980358.labourforce.labours.work.LabourWork
 import lib.github1552980358.labourforce.labours.base.WorkPriority
 import lib.github1552980358.labourforce.labours.message.WorkMessage
@@ -14,7 +13,7 @@ import lib.github1552980358.labourforce.labours.message.WorkMessage
  * @TIME    : 22:10
  **/
 
-class HighLvLabour: BaseLabour(), LabourIdentity {
+class HighLvLabour: BaseLabour() {
     /** [max] **/
     private val max = arrayListOf<LabourWork>()
     /** [mid] **/

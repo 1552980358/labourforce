@@ -13,7 +13,7 @@ import lib.github1552980358.labourforce.labours.work.LabourWork
  * @TIME    : 21:36
  **/
 
-class LowLvLabour: BaseLabour(), LabourIdentity {
+class LowLvLabour: BaseLabour() {
     
     /**
      * [nextWork]

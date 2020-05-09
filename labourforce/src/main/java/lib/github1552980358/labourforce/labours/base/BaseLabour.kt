@@ -10,7 +10,7 @@ import lib.github1552980358.labourforce.labours.work.LabourWorkBuilder
  * @TIME    : 19:49
  **/
 
-open class BaseLabour: Thread() {
+abstract class BaseLabour: Thread(), LabourIdentity {
     
     companion object {
         
@@ -30,7 +30,26 @@ open class BaseLabour: Thread() {
         
     }
     
+    /**
+     * [dutyStatus]
+     * @author 1552980358
+     * @since v0.2
+     **/
     open var dutyStatus = LabourDuty.DoWork
+    
+    /**
+     * [checkInterval]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    var checkInterval = 100L
+    
+    /**
+     * [currentWork]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    internal var currentWork: LabourWork? = null
     
     /**
      * [run]
@@ -69,17 +88,14 @@ open class BaseLabour: Thread() {
     }
     
     /**
-     * [checkInterval]
+     * [goWork]
+     * @return [LabourIdentity]
      * @author 1552980358
-     * @since v0.1
+     * @since v0.2
      **/
-    var checkInterval = 100L
-    
-    /**
-     * [currentWork]
-     * @author 1552980358
-     * @since v0.1
-     **/
-    internal var currentWork: LabourWork? = null
+    fun goWork(): LabourIdentity {
+        start()
+        return this
+    }
     
 }
