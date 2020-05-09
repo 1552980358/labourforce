@@ -26,6 +26,31 @@ class LabourWorkBuilder: LabourWork {
         }
     
         /**
+         * [getBuilder]
+         * @param handler [Handler]?
+         * @return [LabourWorkBuilder]
+         * @author 1552980358
+         * @since v0.1
+         **/
+        @JvmStatic
+        fun getBuilder(handler: Handler? = null): LabourWorkBuilder {
+            return LabourWorkBuilder(handler)
+        }
+    
+        /**
+         * [getBuilder]
+         * @param priority [WorkPriority]<null>
+         * @param handler [Handler]<null>
+         * @return [LabourWorkBuilder]
+         * @author 1552980358
+         * @since v0.1
+         **/
+        @JvmStatic
+        fun getBuilder(priority: WorkPriority? = null, handler: Handler? = null): LabourWorkBuilder {
+            return LabourWorkBuilder(priority, handler)
+        }
+    
+        /**
          * [WorkDone]
          * @author 1552980358
          * @since v0.1
