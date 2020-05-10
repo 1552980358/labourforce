@@ -86,9 +86,9 @@ interface LabourCommand {
      * @param labourWork [LabourWork]
      * @return [LabourCommand]
      **/
-    fun sendWork2Labour(name: String, labourWork: LabourWork): LabourCommand {
+    fun sendWork2Labour(name: String, labourWork: LabourWork, clearList: Boolean = false): LabourCommand {
         if (labours.contains(name))
-            labours[name]?.onWorkReceive(labourWork)
+            labours[name]?.onWorkReceive(labourWork, clearList)
         return this
     }
     

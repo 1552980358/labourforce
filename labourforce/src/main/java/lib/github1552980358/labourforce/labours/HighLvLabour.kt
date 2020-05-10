@@ -52,20 +52,28 @@ class HighLvLabour: BaseLabour() {
     
     /**
      * [onWorkReceive]
+     * @param labourWork [LabourWork]?
+     * @param clearList [Boolean]<false>
      * @author 1552980358
      * @since v0.1
      **/
     @Synchronized
-    override fun onWorkReceive(labourWork: LabourWork?) {
+    override fun onWorkReceive(labourWork: LabourWork?, clearList: Boolean) {
         labourWork?:return
         when (labourWork.priority) {
             null, WorkPriority.MID -> {
+                if (clearList)
+                    mid.clear()
                 mid.add(labourWork)
             }
             WorkPriority.MAX -> {
+                if (clearList)
+                    max.clear()
                 max.add(labourWork)
             }
             WorkPriority.MIN -> {
+                if (clearList)
+                    min.clear()
                 min.add(labourWork)
             }
         }

@@ -51,12 +51,16 @@ class MidLvLabour: BaseLabour() {
     
     /**
      * [onWorkReceive]
+     * @param labourWork [LabourWork]?
+     * @param clearList [Boolean]<false>
      * @author 1552980358
      * @since v0.1
      **/
     @Synchronized
-    override fun onWorkReceive(labourWork: LabourWork?) {
+    override fun onWorkReceive(labourWork: LabourWork?, clearList: Boolean) {
         labourWork?:return
+        if (clearList)
+            workList.clear()
         workList.add(labourWork)
     }
     
@@ -73,6 +77,7 @@ class MidLvLabour: BaseLabour() {
     
     /**
      * [isWorking]
+     * @return [Boolean]
      * @author 1552980358
      * @since v0.1
      **/

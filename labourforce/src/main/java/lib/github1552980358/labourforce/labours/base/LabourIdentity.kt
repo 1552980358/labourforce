@@ -15,10 +15,11 @@ interface LabourIdentity {
     /**
      * [onWorkReceive]
      * @param labourWork [LabourWork]?
+     * @param clearList [Boolean]<false>
      * @author 1552980358
      * @since v0.1
      **/
-    fun onWorkReceive(labourWork: LabourWork?)
+    fun onWorkReceive(labourWork: LabourWork?, clearList: Boolean = false)
     
     /**
      * [offDuty]

@@ -52,10 +52,11 @@ class LowLvLabour: BaseLabour() {
     /**
      * [onWorkReceive]
      * @param labourWork [LabourWork]?
+     * @param clearList [Boolean]<false>
      * @author 1552980358
      * @since v0.1
      **/
-    override fun onWorkReceive(labourWork: LabourWork?) {
+    override fun onWorkReceive(labourWork: LabourWork?, clearList: Boolean) {
         nextWork = labourWork
     }
     
@@ -72,6 +73,7 @@ class LowLvLabour: BaseLabour() {
     
     /**
      * [isWorking]
+     * @return [Boolean]
      * @author 1552980358
      * @since v0.1
      **/
