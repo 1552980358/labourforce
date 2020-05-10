@@ -113,6 +113,7 @@ class LabourWorkBuilder: LabourWork {
     }
     
     constructor(handler: Handler? = null): super(handler)
+    @Suppress("UNUSED_PARAMETER")
     constructor(priority: WorkPriority? = null, handler: Handler? = null): super(handler)
     
     /**
@@ -212,7 +213,7 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     override fun workFail(e: Exception,workProduct: MutableMap<String, Any?>?,  handler: Handler?) {
-        workFailInterface!!.workFail(e, workProduct, handler)
+        workFailInterface?.workFail(e, workProduct, handler)
     }
     
     /**
@@ -222,7 +223,7 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     override fun workDone(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
-        workDoneInterface!!.workDone(workProduct, handler)
+        workDoneInterface?.workDone(workProduct, handler)
     }
     
     /**
@@ -232,7 +233,7 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     override fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
-        dutyEndInterface!!.dutyEnd(workProduct, handler)
+        dutyEndInterface?.dutyEnd(workProduct, handler)
     }
     
 }
