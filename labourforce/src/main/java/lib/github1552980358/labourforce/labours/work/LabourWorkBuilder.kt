@@ -55,7 +55,7 @@ class LabourWorkBuilder: LabourWork {
          * @author 1552980358
          * @since v0.1
          **/
-        interface WorkDone {
+        fun interface WorkDone {
             /**
              * [workDone]
              * @param workProduct [MutableMap]<[String], [Any]?>
@@ -70,7 +70,7 @@ class LabourWorkBuilder: LabourWork {
          * @author 1552980358
          * @since v0.1
          **/
-        interface WorkFail {
+        fun interface WorkFail {
             /**
              * [workFail]
              * @param workProduct [MutableMap]<[String], [Any]?>
@@ -85,7 +85,7 @@ class LabourWorkBuilder: LabourWork {
          * @author 1552980358
          * @since v0.1
          **/
-        interface WorkContent {
+        fun interface WorkContent {
             /**
              * [workContent]
              * @param workProduct [MutableMap]<[String], [Any]?>
@@ -100,7 +100,7 @@ class LabourWorkBuilder: LabourWork {
          * @author 1552980358
          * @since v0.1
          **/
-        interface DutyEnd {
+        fun interface DutyEnd {
             /**
              * [dutyEnd]
              * @param workProduct [MutableMap]<[String], [Any]?>
