@@ -10,7 +10,7 @@ import lib.github1552980358.labourforce.labours.base.WorkPriority
  * @TIME    : 13:49
  **/
 
-class LabourWorkBuilder: LabourWork {
+class LabourWorkBuilder {
     
     companion object {
     
@@ -112,9 +112,27 @@ class LabourWorkBuilder: LabourWork {
         
     }
     
-    constructor(handler: Handler? = null): super(handler)
+    constructor(handler: Handler? = null): super() {
+        this.handler = handler
+    }
     @Suppress("UNUSED_PARAMETER")
-    constructor(priority: WorkPriority? = null, handler: Handler? = null): super(handler)
+    constructor(priority: WorkPriority? = null, handler: Handler? = null): this(handler) {
+        this.priority = priority
+    }
+    
+    /**
+     * [handler]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    private var handler: Handler? = null
+    
+    /**
+     * [priority]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    private var priority: WorkPriority? = null
     
     /**
      * [workContentInterface]
@@ -152,9 +170,8 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     @Suppress("MemberVisibilityCanBePrivate")
-    fun setWorkContent(workContent: WorkContent): LabourWorkBuilder {
+    fun setWorkContent(workContent: WorkContent) = this.apply {
         this.workContentInterface = workContent
-        return this
     }
     
     /**
@@ -165,9 +182,8 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     @Suppress("MemberVisibilityCanBePrivate")
-    fun setWorkDone(workDone: WorkDone): LabourWorkBuilder {
+    fun setWorkDone(workDone: WorkDone) = this.apply {
         this.workDoneInterface = workDone
-        return this
     }
     
     /**
@@ -178,9 +194,8 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     @Suppress("MemberVisibilityCanBePrivate")
-    fun setWorkFail(workFail: WorkFail): LabourWorkBuilder {
+    fun setWorkFail(workFail: WorkFail) = this.apply {
         this.workFailInterface = workFail
-        return this
     }
     
     /**
@@ -191,49 +206,57 @@ class LabourWorkBuilder: LabourWork {
      * @since v0.1
      **/
     @Suppress("MemberVisibilityCanBePrivate")
-    fun setDutyEnd(dutyEnd: DutyEnd): LabourWorkBuilder {
+    fun setDutyEnd(dutyEnd: DutyEnd) = this.apply {
         this.dutyEndInterface = dutyEnd
-        return this
     }
     
     /**
-     * [workContent]
-     * @param workProduct [MutableMap]<[String], [Any]?>
+     * [build]
      * @author 1552980358
      * @since v0.1
      **/
-    override fun workContent(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
-        workContentInterface!!.workContent(workProduct, handler)
-    }
+    fun build() = object : LabourWork(priority, handler) {
+        
+        /**
+         * [workContent]
+         * @param workProduct [MutableMap]<[String], [Any]?>
+         * @author 1552980358
+         * @since v0.1
+         **/
+        override fun workContent(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+            workContentInterface!!.workContent(workProduct, handler)
+        }
     
-    /**
-     * [workFail]
-     * @param workProduct [MutableMap]
-     * @author 1552980358
-     * @since v0.1
-     **/
-    override fun workFail(e: Exception,workProduct: MutableMap<String, Any?>?,  handler: Handler?) {
-        workFailInterface?.workFail(e, workProduct, handler)
-    }
+        /**
+         * [workFail]
+         * @param workProduct [MutableMap]
+         * @author 1552980358
+         * @since v0.1
+         **/
+        override fun workFail(e: Exception,workProduct: MutableMap<String, Any?>?,  handler: Handler?) {
+            workFailInterface?.workFail(e, workProduct, handler)
+        }
     
-    /**
-     * [workDone]
-     * @param workProduct [MutableMap]<[String], [Any]?>
-     * @author 1552980358
-     * @since v0.1
-     **/
-    override fun workDone(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
-        workDoneInterface?.workDone(workProduct, handler)
-    }
+        /**
+         * [workDone]
+         * @param workProduct [MutableMap]<[String], [Any]?>
+         * @author 1552980358
+         * @since v0.1
+         **/
+        override fun workDone(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+            workDoneInterface?.workDone(workProduct, handler)
+        }
     
-    /**
-     * [dutyEnd]
-     * @param workProduct [MutableMap]<[String], [Any]?>
-     * @author 1552980358
-     * @since v0.1
-     **/
-    override fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
-        dutyEndInterface?.dutyEnd(workProduct, handler)
+        /**
+         * [dutyEnd]
+         * @param workProduct [MutableMap]<[String], [Any]?>
+         * @author 1552980358
+         * @since v0.1
+         **/
+        override fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+            dutyEndInterface?.dutyEnd(workProduct, handler)
+        }
+        
     }
     
 }

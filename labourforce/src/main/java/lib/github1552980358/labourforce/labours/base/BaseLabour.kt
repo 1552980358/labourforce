@@ -1,7 +1,6 @@
 package lib.github1552980358.labourforce.labours.base
 
 import lib.github1552980358.labourforce.labours.work.LabourWork
-import lib.github1552980358.labourforce.labours.work.LabourWorkBuilder
 
 /**
  * @File    : [BaseLabour]
@@ -59,8 +58,7 @@ abstract class BaseLabour: Thread(), LabourIdentity {
     override fun run() {
         try {
             
-            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.workContent(currentWork?.productionLine, currentWork?.handler)
+            currentWork?.workContent(currentWork?.productionLine, currentWork?.handler)
         
             // Labour stop working
             // 劳工停止工作
@@ -71,15 +69,12 @@ abstract class BaseLabour: Thread(), LabourIdentity {
             // 工作完成
             throw workDone
         } catch (e: WorkDoneSignal) {
-            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.workDone(currentWork?.productionLine, currentWork?.handler)
+            currentWork?.workDone(currentWork?.productionLine, currentWork?.handler)
         } catch (e: DutyEndSignal) {
-            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.dutyEnd(currentWork?.productionLine, currentWork?.handler)
+            currentWork?.dutyEnd(currentWork?.productionLine, currentWork?.handler)
         } catch (e: Exception) {
             //e.printStackTrace()
-            (if (currentWork is LabourWorkBuilder?) (currentWork as LabourWorkBuilder) else currentWork)
-                ?.workFail(e, currentWork?.productionLine, currentWork?.handler)
+            currentWork?.workFail(e, currentWork?.productionLine, currentWork?.handler)
         }
     
         // Recycle

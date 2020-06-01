@@ -76,8 +76,12 @@ abstract class LabourWork {
      * @since v0.1
      **/
     abstract fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?)
-    
-    
+
+    /**
+     * [workMessage]
+     * @author 1552980358
+     * @since v0.1
+     **/
     private var workMessage = null as WorkMessage?
     
     /**
