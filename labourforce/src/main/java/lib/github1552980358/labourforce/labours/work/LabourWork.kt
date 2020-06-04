@@ -88,7 +88,7 @@ abstract class LabourWork {
      * [receiveMessage]
      * @param workMessage [WorkMessage]
      * @param workProduct [MutableMap]<[String], [Any]?>
-     *     @author 1552980358
+     * @author 1552980358
      * @since v0.1
      **/
     @Synchronized

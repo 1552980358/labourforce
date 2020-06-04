@@ -32,6 +32,8 @@ interface LabourCommand {
      * @param name
      * @param labourIdentity
      * @return [LabourCommand]
+     * @author 1552980358
+     * @since v0.1
      **/
     fun employLabour(name: String, labourIdentity: LabourIdentity?, cover: Boolean = false): LabourCommand {
         labourIdentity?:return this
@@ -50,6 +52,8 @@ interface LabourCommand {
      * @param lv
      * @param cover
      * @return [LabourCommand]
+     * @author 1552980358
+     * @since v0.1
      **/
     fun employLabour(name: String, lv: LabourLv, cover: Boolean = false): LabourCommand {
         if (labours.contains(name)) {
@@ -73,6 +77,8 @@ interface LabourCommand {
      * [fireLabour]
      * @param name
      * @return [LabourCommand]
+     * @author 1552980358
+     * @since v0.1
      **/
     fun fireLabour(name: String): LabourCommand {
         labours[name]?.offDuty()
@@ -85,6 +91,8 @@ interface LabourCommand {
      * @param name [String]
      * @param labourWork [LabourWork]
      * @return [LabourCommand]
+     * @author 1552980358
+     * @since v0.1
      **/
     fun sendWork2Labour(name: String, labourWork: LabourWork, clearList: Boolean = false): LabourCommand {
         if (labours.contains(name))
