@@ -108,7 +108,7 @@ class HighLvLabour: BaseLabour() {
      * @since v0.1
      **/
     override fun onReceiveMessage(workMessage: WorkMessage?) {
-        currentWork?.receiveMessage(workMessage, currentWork?.productionLine)
+        currentWork?.onMessageReceive(workMessage, currentWork?.productionLine, currentWork?.handler)
     }
     
 }

@@ -1,7 +1,10 @@
+@file:Suppress("unused")
+
 package lib.github1552980358.labourforce.labours.work
 
 import android.os.Handler
 import lib.github1552980358.labourforce.labours.base.WorkPriority
+import lib.github1552980358.labourforce.labours.message.WorkMessage
 
 /**
  * @File    : LabourWorkBuilder
@@ -109,6 +112,23 @@ class LabourWorkBuilder {
              **/
             fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?)
         }
+
+        /**
+         * [MessageReceived]
+         * @author 1552980358
+         * @since v0.3
+         **/
+        fun interface MessageReceived {
+            /**
+             * [messageReceived]
+             * @param workMessage [WorkMessage]?
+             * @param workProduct [MutableMap]<[String], [Any]?>?
+             * @param handler [Handler]?
+             * @author 1552980358
+             * @since v0.3
+             **/
+            fun messageReceived(workMessage: WorkMessage?, workProduct: MutableMap<String, Any?>?, handler: Handler?)
+        }
         
     }
     
@@ -161,6 +181,13 @@ class LabourWorkBuilder {
      * @since v0.1
      **/
     private var dutyEndInterface: DutyEnd? = null
+
+    /**
+     * [messageReceivedInterface]
+     * @author 1552980358
+     * @since v0.3
+     **/
+    private var messageReceivedInterface: MessageReceived? = null
     
     /**
      * [setWorkContent]
@@ -169,7 +196,7 @@ class LabourWorkBuilder {
      * @author 1552980358
      * @since v0.1
      **/
-    @Suppress("MemberVisibilityCanBePrivate")
+    @Suppress("MemberVisibilityCanBePrivate", "unused")
     fun setWorkContent(workContent: WorkContent) = this.apply {
         this.workContentInterface = workContent
     }
@@ -193,7 +220,7 @@ class LabourWorkBuilder {
      * @author 1552980358
      * @since v0.1
      **/
-    @Suppress("MemberVisibilityCanBePrivate")
+    @Suppress("MemberVisibilityCanBePrivate", "unused")
     fun setWorkFail(workFail: WorkFail) = this.apply {
         this.workFailInterface = workFail
     }
@@ -205,7 +232,7 @@ class LabourWorkBuilder {
      * @author 1552980358
      * @since v0.1
      **/
-    @Suppress("MemberVisibilityCanBePrivate")
+    @Suppress("MemberVisibilityCanBePrivate", "unused")
     fun setDutyEnd(dutyEnd: DutyEnd) = this.apply {
         this.dutyEndInterface = dutyEnd
     }
@@ -215,11 +242,13 @@ class LabourWorkBuilder {
      * @author 1552980358
      * @since v0.1
      **/
+    @Suppress("MemberVisibilityCanBePrivate", "unused")
     fun build() = object : LabourWork(priority, handler) {
         
         /**
          * [workContent]
          * @param workProduct [MutableMap]<[String], [Any]?>
+         * @param handler [Handler]?
          * @author 1552980358
          * @since v0.1
          **/
@@ -229,17 +258,20 @@ class LabourWorkBuilder {
     
         /**
          * [workFail]
+         * @param e [Exception]
          * @param workProduct [MutableMap]
+         * @param handler [Handler]?
          * @author 1552980358
          * @since v0.1
          **/
-        override fun workFail(e: Exception,workProduct: MutableMap<String, Any?>?,  handler: Handler?) {
+        override fun workFail(e: Exception, workProduct: MutableMap<String, Any?>?, handler: Handler?) {
             workFailInterface?.workFail(e, workProduct, handler)
         }
     
         /**
          * [workDone]
          * @param workProduct [MutableMap]<[String], [Any]?>
+         * @param handler [Handler]?
          * @author 1552980358
          * @since v0.1
          **/
@@ -250,13 +282,26 @@ class LabourWorkBuilder {
         /**
          * [dutyEnd]
          * @param workProduct [MutableMap]<[String], [Any]?>
+         * @param handler [Handler]?
          * @author 1552980358
          * @since v0.1
          **/
         override fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?) {
             dutyEndInterface?.dutyEnd(workProduct, handler)
         }
-        
+
+        /**
+         * [messageReceived]
+         * @param workMessage [WorkMessage]?
+         * @param workProduct [MutableMap]<[String], [Any]?>?
+         * @param handler [Handler]?
+         * @author 1552980358
+         * @since v0.3
+         **/
+        override fun messageReceived(workMessage: WorkMessage?, workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+            messageReceivedInterface?.messageReceived(workMessage, workProduct, handler)
+        }
+
     }
     
 }

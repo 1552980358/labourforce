@@ -42,11 +42,18 @@ abstract class LabourWork {
      * @since v0.1
      **/
     val productionLine = mutableMapOf<String, Any?>()
-    //val workMessages = arrayListOf<>()
+
+    /**
+     * [workMessage]
+     * @author 1552980358
+     * @since v0.1
+     **/
+    private var workMessage = null as WorkMessage?
     
     /**
      * [workContent]
      * @param workProduct [MutableMap]<[String], [Any]?>
+     * @param handler [Handler]?
      * @author 1552980358
      * @since v0.1
      **/
@@ -54,12 +61,13 @@ abstract class LabourWork {
     
     /**
      * [workFail]
-     * @param workProduct [MutableMap]<[String], [Any]?>
      * @param e [Exception]
+     * @param workProduct [MutableMap]<[String], [Any]?>
+     * @param handler [Handler]?
      * @author 1552980358
      * @since v0.1
      **/
-    abstract fun workFail( e: Exception,workProduct: MutableMap<String, Any?>?, handler: Handler?)
+    abstract fun workFail(e: Exception, workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
     /**
      * [workDone]
@@ -78,22 +86,28 @@ abstract class LabourWork {
     abstract fun dutyEnd(workProduct: MutableMap<String, Any?>?, handler: Handler?)
 
     /**
-     * [workMessage]
+     * [dutyEnd]
+     * @param workMessage [WorkMessage]?
+     * @param workProduct [MutableMap]<[String], [Any]?>
+     * @param handler [Handler]
      * @author 1552980358
-     * @since v0.1
+     * @since v0.3
      **/
-    private var workMessage = null as WorkMessage?
+    abstract fun messageReceived(workMessage: WorkMessage?, workProduct: MutableMap<String, Any?>?, handler: Handler?)
     
     /**
-     * [receiveMessage]
-     * @param workMessage [WorkMessage]
-     * @param workProduct [MutableMap]<[String], [Any]?>
+     * [onMessageReceive]
+     * @param workMessage [WorkMessage]?
+     * @param workProduct [MutableMap]<[String], [Any]?>?
+     * @param handler [Handler]?
      * @author 1552980358
      * @since v0.1
      **/
+    @Suppress("unused")
     @Synchronized
-    internal fun receiveMessage(@Suppress("UNUSED_PARAMETER") workMessage: WorkMessage?, @Suppress("UNUSED_PARAMETER") workProduct: MutableMap<String, Any?>?) {
-    
+    internal fun onMessageReceive(workMessage: WorkMessage?, workProduct: MutableMap<String, Any?>?, handler: Handler?) {
+        this.workMessage = workMessage
+        messageReceived(workMessage, workProduct, handler)
     }
-    
+
 }

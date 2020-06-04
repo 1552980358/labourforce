@@ -2,7 +2,6 @@ package lib.github1552980358.labourforce.labours
 
 import lib.github1552980358.labourforce.labours.base.BaseLabour
 import lib.github1552980358.labourforce.labours.base.LabourDuty
-import lib.github1552980358.labourforce.labours.base.LabourIdentity
 import lib.github1552980358.labourforce.labours.message.WorkMessage
 import lib.github1552980358.labourforce.labours.work.LabourWork
 
@@ -88,6 +87,6 @@ class LowLvLabour: BaseLabour() {
      * @since v0.1
      **/
     override fun onReceiveMessage(workMessage: WorkMessage?) {
-        currentWork?.receiveMessage(workMessage, currentWork?.productionLine)
+        currentWork?.onMessageReceive(workMessage, currentWork?.productionLine, currentWork?.handler)
     }
 }
