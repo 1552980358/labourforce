@@ -9,7 +9,7 @@ import lib.github1552980358.labourforce.commands.LabourCommand
  * @TIME    : 10:32
  **/
 
-class LabourWorkCommander {
+class LabourWorkCommander private constructor(labourCommand: LabourCommand) {
     companion object {
     
         /**
@@ -19,11 +19,18 @@ class LabourWorkCommander {
          * @since v0.1
          **/
         @JvmStatic
-        fun asCommander(): LabourWorkCommander {
-            return LabourWorkCommander()
+        fun asCommander(labourCommand: LabourCommand): LabourWorkCommander {
+            return LabourWorkCommander(labourCommand)
         }
         
     }
+
+    /**
+     * [labourCommand]
+     * @author 1552980358
+     * @since v0.3
+     **/
+    private var labourCommand: LabourCommand? = null
     
     /**
      * [labours]
@@ -38,6 +45,15 @@ class LabourWorkCommander {
      * @since v0.1
      **/
     private var labourWorks = arrayListOf<LabourWork>()
+
+    /**
+     * INIT ENTRY
+     * @author 1552980358
+     * @since v0.3
+     **/
+    init {
+        this.labourCommand = labourCommand
+    }
     
     /**
      * [addLabourWork]
@@ -56,13 +72,12 @@ class LabourWorkCommander {
     
     /**
      * [send]
-     * @param labourCommand [LabourCommand]
      * @author 1552980358
      * @since v0.1
      **/
-    fun send(labourCommand: LabourCommand) {
+    fun send() {
         for ((i,j) in labours.withIndex()) {
-            labourCommand.sendWork2Labour(j, labourWorks[i])
+            labourCommand?.sendWork2Labour(j, labourWorks[i])
         }
     }
     
