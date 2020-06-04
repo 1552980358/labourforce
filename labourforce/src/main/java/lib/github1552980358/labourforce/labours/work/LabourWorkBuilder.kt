@@ -112,11 +112,11 @@ class LabourWorkBuilder {
         
     }
     
-    constructor(handler: Handler? = null): super() {
+    private constructor(handler: Handler? = null): super() {
         this.handler = handler
     }
     @Suppress("UNUSED_PARAMETER")
-    constructor(priority: WorkPriority? = null, handler: Handler? = null): this(handler) {
+    private constructor(priority: WorkPriority? = null, handler: Handler? = null): this(handler) {
         this.priority = priority
     }
     
