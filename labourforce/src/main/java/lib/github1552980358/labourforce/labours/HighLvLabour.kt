@@ -13,7 +13,7 @@ import lib.github1552980358.labourforce.labours.message.WorkMessage
  * @TIME    : 22:10
  **/
 
-class HighLvLabour: BaseLabour() {
+class HighLvLabour(threadName: String): BaseLabour(threadName) {
     /** [max] **/
     private val max = arrayListOf<LabourWork>()
     /** [mid] **/

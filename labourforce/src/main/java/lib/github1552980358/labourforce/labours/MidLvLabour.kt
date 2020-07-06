@@ -12,7 +12,7 @@ import lib.github1552980358.labourforce.labours.work.LabourWork
  * @TIME    : 19:47
  **/
 
-class MidLvLabour: BaseLabour() {
+class MidLvLabour(threadName: String): BaseLabour(threadName) {
     
     /**
      * [workList]

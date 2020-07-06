@@ -66,9 +66,9 @@ interface LabourCommand {
         //@Suppress("USELESS_CAST")
         @Suppress("USELESS_CAST")
         labours[name] = when (lv) {
-            LabourLv.High -> HighLvLabour().goWork()
-            LabourLv.Mid -> MidLvLabour().goWork()
-            LabourLv.Low -> LowLvLabour().goWork()
+            LabourLv.High -> HighLvLabour(name).goWork()
+            LabourLv.Mid -> MidLvLabour(name).goWork()
+            LabourLv.Low -> LowLvLabour(name).goWork()
         }
         return this
     }

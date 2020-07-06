@@ -9,7 +9,7 @@ import lib.github1552980358.labourforce.labours.work.LabourWork
  * @TIME    : 19:49
  **/
 
-abstract class BaseLabour: Thread(), LabourIdentity {
+abstract class BaseLabour(val threadName: String): Thread(), LabourIdentity {
     
     companion object {
         
